@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
 import { ProfileModule } from './profile/profile.module';
 import { Profile } from './profile/entities/profile.entity';
+import { PostsModule } from './posts/posts.module';
+import { Post } from './posts/entities/post.entity';
 
 @Module({
   imports: [
@@ -16,13 +18,13 @@ import { Profile } from './profile/entities/profile.entity';
       database : 'crud_nest',
       port : 3306,
       entities : [ //Entidades / tablas para crear
-        User,
-        Profile
+        User, Profile, Post
       ],
       synchronize : true  
     }),
     UsersModule,
-    ProfileModule
+    ProfileModule,
+    PostsModule
   ],
   controllers: [],
   providers: [],
